@@ -1,0 +1,222 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.hangman {
+    padding: 50px;
+}
+.container {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin: auto;
+}
+.container .info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.container .info > h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+.container .info > h1 .category {
+    color: rgb(230, 23, 23);
+    font-weight: bold;
+    text-transform: capitalize;
+}
+.container > hr {
+    border: 1px solid #eee;
+}
+.container .game {
+    background-color: #eee;
+    position: relative;
+    height: 500px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+.container .game .stand {
+    position: absolute;
+    bottom: 80px;
+    display: flex;
+    justify-content: center;
+    visibility: hidden;
+}
+.container .game .stand::before {
+    content: "";
+    position: absolute;
+    width: 60px;
+    height: 4px;
+    background-color: #333;
+
+}
+.container .game .stand::after {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 300px;
+    left: calc(50%);
+    background-color: #333;
+    bottom: 0px;
+
+}
+.container .game .bar {
+    position: absolute;
+    bottom: 380px;
+    display: flex;
+    justify-content: center;
+    visibility: hidden;
+}
+.container .game .bar::before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    background-color: #333;
+    height: 4px;
+    top: 0px;
+    left: 0px;
+}
+.container .game .bar::after {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 60px;
+    background-color: #333;
+    top: 0px;
+    left: 100px;
+}
+.container .game .rope {
+    position: absolute;
+    bottom: 49%;
+    visibility: hidden;
+}
+.container .game .rope::before {
+    content: "";
+    position: absolute;
+    width: 70px;
+    border: 5px dotted #333;
+    height: 70px;
+    border-radius: 50%;
+    left: 64px;
+    bottom: 60%;
+}
+.container .game .man {
+    position: absolute;
+    top: 35%;
+    width: 100px;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    
+}
+.container .game .man .head {
+    position: absolute;
+    width: 50px;
+    background-color: black;
+    height: 50px;
+    border-radius: 50%;
+    left: 105%;
+    top: 40px;
+    transform: translate(-55%,-50%);
+    visibility: hidden;
+}
+.container .game .man .head::after {
+    content: "";
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 126px;
+    width: 4px;
+    background-color: black;
+}
+.container .game .man .hands {
+    position: absolute;
+    left: 100%;
+    top: 40%;
+    transform: translate(-35%,50%);
+    visibility: hidden;
+}
+.container .game .man .hands::before {
+    content: "";
+    position: absolute;
+    background-color: black;
+    width: 62px;
+    height: 4px;
+    top: 35%;
+    transform: rotate(45deg);
+    left: -5px;
+    
+}
+.container .game .man .hands::after {
+    content: "";
+    position: absolute;
+    background-color: black;
+    width: 62px;
+    height: 4px;
+    top: 35%;
+    transform: rotate(-45deg);
+    right: calc(50% - 10px);
+}
+.container .game .man .foot {
+    position: absolute;
+    left: 100%;
+    top: 68%;
+    transform: translate(-35%,50%);
+    visibility: hidden;
+}
+.container .game .man .foot::before {
+    content: "";
+    position: absolute;
+    background-color: black;
+    width: 62px;
+    height: 4px;
+    top: 35%;
+    transform: rotate(45deg);
+    left: -5px;
+}
+.container .game .man .foot::after {
+    content: "";
+    position: absolute;
+    background-color: black;
+    width: 62px;
+    height: 4px;
+    top: 35%;
+    transform: rotate(-45deg);
+    right: calc(50% - 10px);
+}
+
+.letters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 50%;
+    margin-left: 30px;
+}
+.letter_box {
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    color: white;
+    background-color: rgb(23, 117, 23);
+    text-transform: uppercase;
+    font-size: 25px;
+    font-weight: bold;
+}
+.letters-guess {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    margin: 0px 10px;
+    justify-content: center;
+}
